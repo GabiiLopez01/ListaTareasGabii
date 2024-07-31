@@ -16,6 +16,7 @@ const setDate = () => {
     dateYear.textContent = date.toLocaleString('es', {year: 'numeric'});
 
 };
+//agrega una nueva tarea
 const addNewTask = event => {
     event.preventDefault();
     const {value} = event.target.taskText;
@@ -27,7 +28,7 @@ const addNewTask = event => {
     tasksContainer.prepend(task);
     event.target.reset();
 };
-//agregar nuevas tareas a la lista de tareas
+//modifica el estado de las tareas
 const changeTaskState = event => {
     event.target.classList.toggle('done');
 };
@@ -42,8 +43,9 @@ const order = () =>{
     return [... toDo, ...done];
 
 }
+
 const renderOrderedTasks = () => {
     order().forEach(el => tasksContainer.appendChild(el))
 }
+//fecha de la lista de tareas
 setDate();
-
